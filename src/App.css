@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -20,9 +20,29 @@
 
 .content {
   display: flex;
-  gap: 20px;
-  max-width: 800px;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Balance Summary - Full width row */
+.balance-summary-row {
+  width: 100%;
+}
+
+/* Main content area - Two column row */
+.main-content-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Remove margins from components since we're using grid gap */
+.transaction-form,
+.transaction-list {
+  margin: 0;
 }
 
 .expense-form,
@@ -49,11 +69,31 @@
   }
 
   .content {
-    gap: 15px;
+    gap: 20px;
+  }
+
+  /* Stack columns on mobile */
+  .main-content-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .App-header h1 {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .content {
+    gap: 16px;
+  }
+
+  .main-content-row {
+    gap: 16px;
   }
 }
 
