@@ -1,8 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import './App.css';
+import TransactionList from './components/TransactionList';
+import AddTransaction from './components/AddTransaction';
 
 function App() {
-  const [expenses, setExpenses] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+
+  // Load transactions from localStorage on component mount
+  useEffect(() => {
+    const savedTransactions = localStorage.getItem('transactions');
+    if (savedTransactions) {
+      setTransactions(JSON.parse(savedTransactions));
+    }
+  }, []);
+
+  // Save transactions to localStorage whenever transactions change
+  useEffect(() => {
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+  }, [transactions]);
+
+  // Function to add a new transaction
+  const handleAddTransaction = (newTransaction) => {
+    setTransactions((prev) => [newTransaction, ...prev]);
+  };
 
   return (
     <div className='App'>
@@ -10,23 +31,9 @@ function App() {
         <h1>💰 Expense Tracker</h1>
         <p>Track your expenses efficiently</p>
       </header>
-      <main>
-        <div className='expense-form'>
-          <h2>Add New Expense</h2>
-          {/* Add your expense form here */}
-        </div>
-        <div className='expense-list'>
-          <h2>Your Expenses</h2>
-          {expenses.length === 0 ? (
-            <p>No expenses yet. Add your first expense above!</p>
-          ) : (
-            expenses.map((expense, index) => (
-              <div key={index} className='expense-item'>
-                {expense.description}: ${expense.amount}
-              </div>
-            ))
-          )}
-        </div>
+      <main className='content'>
+        <AddTransaction onAddTransaction={handleAddTransaction} />
+        <TransactionList transactions={transactions} />
       </main>
     </div>
   );

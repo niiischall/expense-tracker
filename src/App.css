@@ -18,6 +18,13 @@
   font-size: 2.5rem;
 }
 
+.content {
+  display: flex;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .expense-form,
 .expense-list {
   background: #f9f9f9;
@@ -33,6 +40,21 @@
   margin: 10px 0;
   border-radius: 4px;
   border-left: 4px solid #61dafb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .content {
+    gap: 15px;
+  }
+
+  .App-header h1 {
+    font-size: 2rem;
+  }
 }
 
 @media (prefers-color-scheme: light) {
