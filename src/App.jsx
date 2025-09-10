@@ -30,12 +30,9 @@ function App() {
         <h1>💰 Expense Tracker</h1>
       </header>
       <main className='content'>
-        {/* Row 1: Balance Summary - Full Width */}
         <div className='balance-summary-row'>
           <BalanceSummary transactions={transactions} />
         </div>
-
-        {/* Row 2: Add Transaction and Transaction List - Equal Width Columns */}
         <div className='main-content-row'>
           <AddTransaction onAddTransaction={handleAddTransaction} />
           <TransactionList transactions={transactions} />
