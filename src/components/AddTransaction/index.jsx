@@ -34,10 +34,8 @@ const AddTransaction = ({ onAddTransaction }) => {
       type: formData.type,
     };
 
-    // Call the parent function to add the transaction
     onAddTransaction(newTransaction);
 
-    // Reset form
     setFormData({
       date: new Date().toISOString().split('T')[0],
       category: 'Food',

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 import './App.css';
+import ThemeToggle from './components/ThemeToggle';
 import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
 import BalanceSummary from './components/BalanceSummary';
@@ -28,6 +29,9 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1>💰 Expense Tracker</h1>
+        <div className='header-controls'>
+          <ThemeToggle />
+        </div>
       </header>
       <main className='content'>
         <div className='balance-summary-row'>

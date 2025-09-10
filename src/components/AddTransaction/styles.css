@@ -57,7 +57,6 @@
   background-color: #21a1c4;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .transaction-form {
     margin: 10px 0;
@@ -66,6 +65,6 @@
 
   .form-group input,
   .form-group select {
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
   }
 }

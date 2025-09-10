@@ -8,6 +8,7 @@ export const formatDate = (dateString) => {
 
 export const filterTransactions = (transactions, filters) => {
   return transactions.filter((transaction) => {
+    // Type
     if (filters.type !== 'All' && transaction.type !== filters.type) {
       return false;
     }

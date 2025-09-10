@@ -1,7 +1,6 @@
 import './styles.css';
 
 const BalanceSummary = ({ transactions }) => {
-  // Calculate totals using reduce
   const totals = transactions.reduce(
     (acc, transaction) => {
       if (transaction.type === 'Income') {
@@ -16,7 +15,6 @@ const BalanceSummary = ({ transactions }) => {
 
   const totalBalance = totals.totalIncome - totals.totalExpenses;
 
-  // Format currency display
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
